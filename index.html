@@ -227,15 +227,16 @@
             var mainContainer = document.getElementById("myData");
             for (var i = 0; i < data.length; i++) {
                 var div = document.createElement("div");
-                div.innerHTML = `<div class="card">Name: + ${data[i].type} + ' ' + ${data[i].name } ${data[i].totalprice_frequent}  ${data[i].name}</div>
-                <ul class="list-group mb-3">
-                 <li class="list-group-item">Country: ${data[i].type}</li>
-                  <li class="list-group-item">CODE: ${data[i].name}</li>
+                div.innerHTML = `
+                 <ul class="list-group mb-3">
+                 <li class="list-group-item">Country: ${data[i].type}  ${data[i].name} ${data[i].totalprice_frequent}</li>
+                  
   </ul>
                 `
                 mainContainer.appendChild(div);
             }
         }
+        //https://collivery.net/integration/api/v3/?javascript#request-a-quote
     </script>
   </body>
 </html>
