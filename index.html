@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Fastway Couriers currently operates across key metropolitan and regional locations across South Africa, offering a low cost and fast courier delivery service. Franchise opportunities also available."
+    />
+    <meta
+      name="keywords"
+      content="fastway, couriers, fastway couriers, courier, fastways, fastaway, freight, delivery, pickup, cheap, low cost, cost, economical, franchising, franchise opportunities, franchises, franchisee, business for sale, reliable, pick up, pick-up, van, woocommerce plugin, shopify plugin, ecwid plugin, ecommerce, best last mile courier, cheapest courier, best priced courier,"
+    />
+    <title>Fastway Couriers | Quick quote</title>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/fastway.css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <script src="./scripts/jquery.min.js" type="text/javascript"></script>
+    <script
+      src="./scripts/jquery-ui-1.8.16.autocomplete.min.js"
+      type="text/javascript"
+    ></script>
+    <link rel="stylesheet" href="./css/jquery-ui.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="./css/quickquote.css" />
+    <div class="section-quickquote paddTopBottom">
+      <div class="container">
+        <div class="col-sm-6">
+          <div class="moduletable CFfranchiseForm">
+            <div class="QuickQuoteformWrapper">
+              <div class="QuickQuoteformHeader">
+                <h1 style="color: #fff; text-align: center">Quick quote</h1>
+                <h4 style="color: #fff; text-align: center">
+                  (For Fastway customers)<br />Check the cost and delivery time
+                  to get your parcel from A to B.
+                </h4>
+              </div>
+              <div class="arrow-downBlue"></div>
+
+              <div id="QuickQuoteform">
+                <p style="font-size: 11px; text-align: right">
+                  * Required fields
+                </p>
+                <form name="form">
+                  <label>Sending from*</label>
+
+                  <select
+                    class="form-control"
+                    id="SendingFrom"
+                    name="pFranchisee"
+                  >
+                    <option value="">Select location</option>
+                    <option value="BFN">Bloemfontein</option>
+                    <option value="CPT">Cape Town</option>
+                    <option value="DUR">Durban</option>
+                    <option value="ELS">East London</option>
+                    <option value="GRJ">George</option>
+                    <option value="JNB">Johannesburg</option>
+                    <option value="KDP">Klerksdorp</option>
+                    <option value="NLP">Nelspruit</option>
+                    <option value="HRS">Newcastle</option>
+                    <option value="PZB">Pietermaritzburg</option>
+                    <option value="PTG">Polokwane</option>
+                    <option value="PLZ">Port Elizabeth</option>
+                    <option value="PRY">Pretoria</option>
+                    <option value="RBG">Rustenburg</option>
+                    <option value="VEE">Vereeniging</option>
+                    <option value="WIT">Witbank</option>
+                  </select>
+
+                  <label>Sending to*</label>
+                  <input
+                    class="form-control"
+                    id="SendingTo"
+                    name="vTown"
+                    type="text"
+                  />
+
+                  <div style="width: 30%; float: left; margin-right: 5%">
+                    <label>Postcode*</label>
+                    <input
+                      class="form-control"
+                      id="Postcode"
+                      name="vPostcode"
+                      maxlength="4"
+                      type="text"
+                    />
+                  </div>
+
+                  <div style="width: 30%; float: left; margin-right: 5%">
+                    <label>Weight (kg)*</label>
+                    <input
+                      class="form-control"
+                      id="Weight"
+                      name="vWeight"
+                      maxlength="3"
+                      type="text"
+                    />
+                  </div>
+
+                  <div style="clear: both">
+                    <label style="font-size: 12px; padding-top: 12px"
+                      >For the most accurate quote please enter the parcel
+                      dimensions
+                    </label>
+                  </div>
+
+                  <div style="width: 30%; float: left; margin-right: 5%">
+                    <label>Length (cm)</label>
+                    <input
+                      class="form-control"
+                      id="Length"
+                      name="vLength"
+                      maxlength="3"
+                      type="text"
+                    />
+                  </div>
+
+                  <div style="width: 30%; float: left; margin-right: 5%">
+                    <label>Height (cm)</label>
+                    <input
+                      class="form-control"
+                      id="Height"
+                      name="vHeight"
+                      maxlength="3"
+                      type="text"
+                    />
+                  </div>
+
+                  <div style="width: 30%; float: left">
+                    <label>Width (cm)</label>
+                    <input
+                      class="form-control"
+                      id="Width"
+                      name="vWidth"
+                      maxlength="3"
+                      type="text"
+                    />
+                  </div>
+                  <div class="checkboxWrapper">
+                    <label class="checkbox">
+                      <input
+                        type="checkbox"
+                        value="remember-me"
+                        id="remember_me"
+                        class="checkboxTick"
+                      />
+                      Remember search
+                    </label>
+                  </div>
+
+                  <div style="padding-bottom: 6px">
+                    <button
+                      class="btn btn-primary btn-lg"
+                      style="
+                        margin-right: 6px;
+                        margin-top: 12px;
+                        width: 80%;
+                        border-radius: 0px;
+                      "
+                      type="submit"
+                    >
+                      Quote
+                    </button>
+
+                    <button
+                      id="btnClear"
+                      type="reset"
+                      value="Reset"
+                      class="btn btn-default btn-lg btn-clear"
+                      style="border-radius: 0px; margin-top: 12px"
+                    >
+                      Clear
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="app"></div>
+        <div id="myData"></div>
+
+
+        <!-- END QQuote form col -->
+
+        <!-- End Right Column Banner-->
+      </div>
+      <!-- end Container -->
+    </div>
+    <!-- end section Quick quote -->
+
+    <script type="text/javascript">
+      const api_key = "91d98ef3e489ee54f28ebfef8e6c6862";
+      var form = document.forms["form"];
+      form.onsubmit = function (e) {
+        e.preventDefault();
+        const url = `https://sa.api.fastway.org/v3/psc/lookup?api_key=${api_key}`;
+        fetch(url, {
+          method: "POST",
+          headers: {
+            Accept: "application/json, text/plain, */*",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            RFCode: document.form.pFranchisee.value,
+            Suburb: document.form.vTown.value,
+            DestPostcode: document.form.vPostcode.value,
+            WeightInKg: document.form.vWeight.value,
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data)
+           appendData(data.result.services);  
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        // console.log(form);
+      };
+      function appendData(data) {
+            var mainContainer = document.getElementById("myData");
+            for (var i = 0; i < data.length; i++) {
+                var div = document.createElement("div");
+                div.innerHTML = `<div class="card">Name: + ${data[i].type} + ' ' + ${data[i].name } ${data[i].totalprice_frequent}  ${data[i].name}</div>
+                <ul class="list-group mb-3">
+                 <li class="list-group-item">Country: ${data[i].type}</li>
+                  <li class="list-group-item">CODE: ${data[i].name}</li>
+  </ul>
+                `
+                mainContainer.appendChild(div);
+            }
+        }
+    </script>
+  </body>
+</html>
