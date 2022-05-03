@@ -51,7 +51,7 @@
             <div class="col-md-6 mt-3">
               <div class="form-group">
                 <label for="_deliveryAddressInput" class="form-label">Collection: Suburb/Town</label>
-                <input class="form-control" name="_collectionTownInput" list="_collectionTown" id="_collectionTownInput" placeholder="Type to search...">
+                <input class="form-control" onkeyup="fetchAllSuburb()" name="_collectionTownInput" list="_collectionTown" id="_collectionTownInput" placeholder="Type to search...">
                 <datalist id="_collectionTown"></datalist>
               </div>
             </div>
