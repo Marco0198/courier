@@ -21,7 +21,7 @@ const parametrize = (url, params = {}) => {
 
 const api_key = "91d98ef3e489ee54f28ebfef8e6c6862";
 
-let suburb ;
+let suburb,deliveryTownId ;
 
 function fetchAllSuburb() {
   const url = new URL(
@@ -60,11 +60,55 @@ function fetchAllSuburb() {
     });
     
 }
+function fetchDeliveryTownInput() {
+  const url = new URL(
+    "https://api.collivery.co.za/v3/town_suburb_search?api_token=OpSjx5TlXGCGkzGAvUOm"
+  );
+
+  let params = {
+    search_text: document.form._deliveryTownInput.value,
+  };
+  Object.keys(params).forEach((key) =>
+    url.searchParams.append(key, params[key])
+  );
+
+  let headers = {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    "X-App-Name": "My Custom App",
+    "X-App-Version": "0.2.1",
+    "X-App-Host": ".NET Framework 4.8",
+    "X-App-Lang": "C#",
+    "X-App-Url": "https://example.com",
+  }
+
+  fetch(url, {
+    method: "GET",
+    headers: headers,
+  })
+    .then((response) => response.json())
+    .then((res) => {
+     // townId = res.data[0].suburb.town.id;
+     //let townId= res.data[0].suburb.id;
+     //localStorage.setItem("townId", res.data[0].suburb.id);
+     console.log("ta reponse "+ res);
+     getTownDelId(res.data[0].suburb.town.id);
+      
+    });
+    
+}
+
 function getTownId(id){
   
   suburb=id;
   console.log(suburb)
   return suburb;
+}
+function getTownDelId(id){
+  
+  deliveryTownId=id;
+  console.log(deliveryTownId)
+  return deliveryTownId;
 }
 //fetchAllSuburb()
 
@@ -118,7 +162,7 @@ form.onsubmit = async function (e) {
             },
           ],
           collection_town:suburb,
-          delivery_town: 200,
+          delivery_town:deliveryTownId,
           collection_location_type: 1,
           delivery_location_type: 5,
         }),
@@ -457,4 +501,3 @@ const actions = {
 };
 /* EXE */
 Object.values(actions).forEach((v) => v());
-
