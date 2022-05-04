@@ -147,12 +147,31 @@ form.onsubmit = async function (e) {
   });
 };
 function appendData(data) {
-  var mainContainer = document.getElementById("myData");
-  for (var i = 0; i < data.length; i++) {
+  var mainContainer = document.getElementById("fastway");
+  for (var i = 1; i < data.length; i++) {
     var div = document.createElement("div");
     div.innerHTML = `
-                 <ul class="list-group mb-3">fastway
-                 <li class="list-group-item">Option: ${data[i].type}  ${data[i].name} ${data[i].totalprice_frequent}</li> </ul>
+    <div class="shadow-sm p-3 mb-1 bg-body rounded border border-info">
+    <small>Option ${[i]}</small>
+    <h5> ${data[i].type}</h5>           
+   <div class=" border-1 row d-flex justify-content-center">
+  <div class=" col-lg-2 col-md-6">Label
+  colour<br><br><br>${data[i].labelcolour}</div>
+
+  <div class="col-lg-2 col-md-6">Price
+  (Excl VAT)<br><br><br>${data[i].labelprice_frequent_exgst}-${data[i].totalprice_frequent}</div>
+
+  <div class="col-lg-2 col-md-6">Weight
+  limit covered
+  by label (Kg)<br><br>${data[i].weightlimit}</div>
+
+  <div class="col-lg-2 col-md-6">Excess
+  labels<br><br><br>N/A</div>
+
+  <div class="col-lg-2 col-md-6">Excess
+  label price
+  (Excl VAT)<br><br>N/A</div>
+</div></div>
                 `;
     mainContainer.appendChild(div);
   }
@@ -163,10 +182,20 @@ function appendDataCollivery(data) {
     //   console.log("data"+data)
     var div = document.createElement("div");
     div.innerHTML = `
-                 <ul class="list-group mb-3"> collivery
+    <div class="shadow-sm p-3 mb-1 bg-body rounded border border-info"> 
+                 <div class="container">
+  <div class="row align-items-start">
+    <div class="col">
+    ${deliveryTypes(data[i].service_type)}
+    </div>
+    <div class="col">
+    Delivery ${data[i].delivery_type}
+    </div>
+    <div class="col">
+    Total R: ${data[i].total}
+    </div>
+  </div></div>
 
-                 <li class="list-group-item"> ${deliveryTypes(data[i].service_type)}  Delivery${data[i].delivery_type} Total R: ${data[i].total}</li>             
-                            </ul>
                 `;
     mainContainer.appendChild(div);
   }

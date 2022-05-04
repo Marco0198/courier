@@ -36,14 +36,14 @@ BREAKPOINTS
 
 body { color: #5e5e5e; }
 body, nav.sub ul{
-    background-color: #f6f6f6;
+    background-color: #b1b0b0;
 }
 
 .img-responsive { width:100%;}
 
 .pagebgBlue { background-color:#003184;}
-.boxWhite { background-color:#ffffff; border:solid 1px #eeeeee; padding-top:22px; padding-bottom:22px; margin-bottom:22px; border-radius:4px}
-.boxGrey { background-color:#eeeeee; border:solid 1px #cccccc; padding-top:22px; padding-bottom:22px; margin-bottom:22px}
+.boxWhite { background-color:#b1b0b0; border:solid 1px #eeeeee; padding-top:22px; padding-bottom:22px; margin-bottom:22px; border-radius:4px}
+.boxGrey { background-color:#b1b0b0; border:solid 1px #cccccc; padding-top:22px; padding-bottom:22px; margin-bottom:22px}
 
 .pBlue {color:#3a5dae}
 
