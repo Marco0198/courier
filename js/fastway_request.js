@@ -151,7 +151,7 @@ function appendData(data) {
   for (var i = 1; i < data.length; i++) {
     var div = document.createElement("div");
     div.innerHTML = `
-    <div class="shadow-sm p-3 mb-1 bg-body rounded border border-info">
+    <div class="shadow-sm p-3 mb-1 bg-body rounded border ">
     <small>Option ${[i]}</small>
     <h5> ${data[i].type}</h5>           
    <div class=" border-1 row d-flex justify-content-center">
@@ -159,7 +159,9 @@ function appendData(data) {
   colour<br><br><br>${data[i].labelcolour}</div>
 
   <div class="col-lg-2 col-md-6">Price
-  (Excl VAT)<br><br><br>${data[i].labelprice_frequent_exgst}-${data[i].totalprice_frequent}</div>
+  (Excl VAT)<br><br><br>${data[i].labelprice_frequent_exgst}-${
+      data[i].totalprice_frequent
+    }</div>
 
   <div class="col-lg-2 col-md-6">Weight
   limit covered
@@ -182,7 +184,7 @@ function appendDataCollivery(data) {
     //   console.log("data"+data)
     var div = document.createElement("div");
     div.innerHTML = `
-    <div class="shadow-sm p-3 mb-1 bg-body rounded border border-info"> 
+    <div class="shadow-sm p-3 mb-1 bg-body rounded border "> 
                  <div class="container">
   <div class="row align-items-start">
     <div class="col">
