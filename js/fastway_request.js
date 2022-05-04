@@ -12,6 +12,16 @@ const header = {
   "X-App-Url": "https://example.com",
 };
 const server = (val) => "https://api.collivery.co.za/v3/".concat(val);
+const deliveryTypes = (type) => {
+  let t = {
+    1: "Same Day",
+    2: "Next Day",
+    3: "Light Cargo Freight",
+    5: "Heavy Cargo Freight",
+  };
+  return t[type];
+};
+
 const parametrize = (url, params = {}) => {
   params.api_token = $("meta[name='token']").attr("content");
   return Object.keys(params).forEach((key) =>
@@ -19,37 +29,41 @@ const parametrize = (url, params = {}) => {
   );
 };
 const api_key = "91d98ef3e489ee54f28ebfef8e6c6862";
-let suburb,deliveryTownId ;
+let suburb, deliveryTownId;
 function fetchAllSuburb() {
   const url = new URL(
     "https://api.collivery.co.za/v3/town_suburb_search?api_token=OpSjx5TlXGCGkzGAvUOm"
   );
 
   let params = {
-    search_text:document.getElementById("_collectionTownInput").value.toString().substring(0, 4)
+    search_text: document
+      .getElementById("_collectionTownInput")
+      .value.toString()
+      .substring(0, 4),
   };
   Object.keys(params).forEach((key) =>
     url.searchParams.append(key, params[key])
   );
   fetch(url, {
     method: "GET",
-    headers:header,
+    headers: header,
   })
     .then((response) => response.json())
     .then((res) => {
-     console.log("ta reponse "+ res);
-     getTownId(res.data[0].suburb.town.id); 
-    // getTownDelId(res.data[0].suburb.town.id);   
-
-    });  
+      console.log("ta reponse " + res);
+      getTownId(res.data[0].suburb.town.id);
+      // getTownDelId(res.data[0].suburb.town.id);
+    });
 }
 function fetchDeliveryTownInput() {
   const url = new URL(
     "https://api.collivery.co.za/v3/town_suburb_search?api_token=OpSjx5TlXGCGkzGAvUOm"
   );
   let params = {
-    search_text:document.getElementById("_deliveryTownInput").value.toString().substring(0, 4)
-
+    search_text: document
+      .getElementById("_deliveryTownInput")
+      .value.toString()
+      .substring(0, 4),
   };
   Object.keys(params).forEach((key) =>
     url.searchParams.append(key, params[key])
@@ -61,27 +75,25 @@ function fetchDeliveryTownInput() {
   })
     .then((response) => response.json())
     .then((res) => {
-     console.log("ta reponse "+ res);
-     getTownDelId(res.data[0].suburb.town.id);   
-    });  
+      console.log("ta reponse " + res);
+      getTownDelId(res.data[0].suburb.town.id);
+    });
 }
-function getTownId(id){
-  
-  suburb=id;
-  console.log(suburb)
+function getTownId(id) {
+  suburb = id;
+  console.log(suburb);
   return suburb;
 }
-function getTownDelId(id){
-  
-  deliveryTownId=id;
-  console.log(deliveryTownId)
+function getTownDelId(id) {
+  deliveryTownId = id;
+  console.log(deliveryTownId);
   return deliveryTownId;
 }
 
 form.onsubmit = async function (e) {
- 
- e.preventDefault();
- console.log(suburb);
+  e.preventDefault();
+
+  console.log(suburb);
   const url = `https://sa.api.fastway.org/v3/psc/lookup?api_key=${api_key}`;
   const token = "OpSjx5TlXGCGkzGAvUOm";
   const result = await Promise.allSettled([
@@ -118,8 +130,8 @@ form.onsubmit = async function (e) {
               quantity: 2,
             },
           ],
-          collection_town:suburb,
-          delivery_town:deliveryTownId,
+          collection_town: suburb,
+          delivery_town: deliveryTownId,
           collection_location_type: 1,
           delivery_location_type: 5,
         }),
@@ -140,7 +152,7 @@ function appendData(data) {
     var div = document.createElement("div");
     div.innerHTML = `
                  <ul class="list-group mb-3">fastway
-                 <li class="list-group-item">Country: ${data[i].type}  ${data[i].name} ${data[i].totalprice_frequent}</li> </ul>
+                 <li class="list-group-item">Option: ${data[i].type}  ${data[i].name} ${data[i].totalprice_frequent}</li> </ul>
                 `;
     mainContainer.appendChild(div);
   }
@@ -152,7 +164,9 @@ function appendDataCollivery(data) {
     var div = document.createElement("div");
     div.innerHTML = `
                  <ul class="list-group mb-3"> collivery
-                 <li class="list-group-item">Country: ${data[i].service_type}  ${data[i].delivery_type} ${data[i].total}</li>              </ul>
+
+                 <li class="list-group-item"> ${deliveryTypes(data[i].service_type)}  Delivery${data[i].delivery_type} Total R: ${data[i].total}</li>             
+                            </ul>
                 `;
     mainContainer.appendChild(div);
   }
@@ -162,8 +176,8 @@ const apiCall = {
   login: async (creds = credentials) => {
     let url = new URL(server("login"));
     return await fetch(url, { method: "POST", headers: header, body: creds });
-   },
-   addressSuburbs: async (suburb = "", postalCode = "", country = "ZAF") => {
+  },
+  addressSuburbs: async (suburb = "", postalCode = "", country = "ZAF") => {
     let url = new URL(server("suburbs"));
     parametrize(url, {
       search: suburb,
@@ -178,8 +192,7 @@ const apiCall = {
     parametrize(url, { search_text: search });
     return await fetch(url, { method: "GET", headers: header });
   },
-
- };
+};
 const actions = {
   login: () => {
     $(document).on("click", "input:button", (ev) => {
@@ -245,8 +258,6 @@ const actions = {
         });
     });
   },
-  
- 
 };
 /* EXE */
 Object.values(actions).forEach((v) => v());
