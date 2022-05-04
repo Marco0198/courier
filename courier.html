@@ -51,7 +51,7 @@
             <div class="col-md-6 mt-3">
               <div class="form-group">
                 <label for="_deliveryAddressInput" class="form-label">Collection: Suburb/Town</label>
-                <input class="form-control" onchange="fetchAllSuburb()" name="_collectionTownInput" list="_collectionTown" id="_collectionTownInput" placeholder="Type to search...">
+                <input class="form-control" onchange="fetchAllSuburb()" name="_collectionTownInput" list="_collectionTown" id="_collectionTownInput" placeholder="Type to search..." required>
                 <datalist id="_collectionTown"></datalist>
               </div>
             </div>
@@ -59,7 +59,7 @@
             <div class="col-md-6 mt-3">
               <div class="form-group">
                 <label for="_deliveryContactInput" class="form-label">Delivery: Suburb/Town</label>
-                <input class="form-control mb-3"  list="_deliveryTown" onchange="fetchDeliveryTownInput()"  name="_deliveryTownInput" id="_deliveryTownInput" placeholder="Type to search...">
+                <input class="form-control mb-3"  list="_deliveryTown" onchange="fetchDeliveryTownInput()"  name="_deliveryTownInput" id="_deliveryTownInput" placeholder="Type to search..."required>
                 <datalist id="_deliveryTown"></datalist>
               </div>
             </div>
@@ -74,7 +74,7 @@
                 class="form-control"
                 id="SendingFrom"
                 name="pFranchisee"
-              >
+                required>
                 <option value="">Select location</option>
                 <option value="BFN">BFN Bloemfontein</option>
                 <option value="CPT">CPT Cape Town</option>
@@ -101,7 +101,7 @@
               <div class="form-group">
                 <label for="Suburb">Suburb</label>
                 <input type="text" class="form-control" placeholder="Suburb" id="Suburb"  name="vTown"
-                >
+                required>
               </div>
             </div>
             <!--  col-md-6   -->
@@ -110,14 +110,14 @@
             <div class="col-md-6 mt-3">
               <div class="form-group">
                 <label for="Postal_Code">Postal Code</label>
-                <input type="text" class="form-control"  name="vPostcode" placeholder="please enter  destination postal code" id="Postal_Code">
+                <input type="text" class="form-control"  name="vPostcode" placeholder="please enter  destination postal code" id="Postal_Code" required>
               </div>
             </div>
             <!--  col-md-6   -->
             <div class="col-md-6 mt-3">
               <div class="form-group">
                 <label for="Weight">Weight in KG</label>
-                <input type="text" name="vWeight" class="form-control" id="Weight" placeholder=" please enter weight in KG">
+                <input type="text" name="vWeight" class="form-control" id="Weight" placeholder=" please enter weight in KG" required>
               </div>
             </div>
             <!--  col-md-6   -->
@@ -127,13 +127,13 @@
             <div class="col-md-6 mt-3">
               <div class="form-group">
                 <label for="Height">Height in Cm</label>
-                <input type="height" class="form-control" id="height" placeholder=" please enter Height in Cm">
+                <input type="height" class="form-control" id="height" placeholder=" please enter Height in Cm" required>
               </div>
             </div>
             <div class="col-md-6 mt-3">
               <div class="form-group">
                 <label for="width">Width In Cm</label>
-                <input type="text" class="form-control" id="width" placeholder=" please enter width in cm">
+                <input type="text" class="form-control" id="width" placeholder=" please enter width in cm" required>
               </div>
             </div>
           </div>
