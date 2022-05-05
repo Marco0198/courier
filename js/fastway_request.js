@@ -1,7 +1,7 @@
-const credentials = JSON.stringify({
-  email: "demo@collivery.co.za",
-  password: "demo",
-});
+// const credentials = JSON.stringify({
+//   email: "demo@collivery.co.za",
+//   password: "demo",
+// });
 const header = {
   "Content-Type": "application/json",
   Accept: "application/json",
@@ -23,7 +23,7 @@ const deliveryTypes = (type) => {
 };
 
 const parametrize = (url, params = {}) => {
-  params.api_token = $("meta[name='token']").attr("content");
+  params.api_token = localStorage.getItem("api_token");
   return Object.keys(params).forEach((key) =>
     url.searchParams.append(key, params[key])
   );
@@ -159,7 +159,7 @@ function appendData(data) {
   colour<br><br><br>${data[i].labelcolour}</div>
 
   <div class="col-lg-2 col-md-6">Price
-  (Excl VAT)<br><br><br>${data[i].labelprice_frequent_exgst}-${
+  (Excl VAT)<br><br><br>R ${data[i].labelprice_frequent_exgst}-${
       data[i].totalprice_frequent
     }</div>
 
@@ -194,7 +194,7 @@ function appendDataCollivery(data) {
     Delivery ${data[i].delivery_type}
     </div>
     <div class="col">
-    Total R: ${data[i].total}
+    Total R ${data[i].total}
     </div>
   </div></div>
 
@@ -225,32 +225,7 @@ const apiCall = {
   },
 };
 const actions = {
-  login: () => {
-    $(document).on("click", "input:button", (ev) => {
-      let _fail = () => {
-        alert("Login Failed");
-      };
-      let _success = (d) => {
-        $("meta[name='token']").attr("content", d.data.api_token);
-        $(".onAuth").removeClass("d-none");
-      };
-      if (ev.target.value === "login") {
-        if (!$("meta[name='token']").attr("content")) {
-          apiCall
-            .login(
-              JSON.stringify({
-                email: $("#_email").val(),
-                password: $("#_password").val(),
-              })
-            )
-            .then((resp) => (resp.ok ? resp.json() : "error"))
-            .then((d) => (d === "error" ? _fail() : _success(d)));
-        } else if ($("meta[name='token']").attr("content")) {
-          $(".onAuth").removeClass("d-none");
-        }
-      }
-    });
-  },
+
   collectionPoint: () => {
     $(document).on("keyup", "#_collectionTownInput", (ev) => {
       apiCall
