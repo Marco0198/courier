@@ -202,7 +202,6 @@ function appendDataCollivery(data) {
     mainContainer.appendChild(div);
   }
 }
-
 const apiCall = {
   login: async (creds = credentials) => {
     let url = new URL(server("login"));
@@ -225,7 +224,6 @@ const apiCall = {
   },
 };
 const actions = {
-
   collectionPoint: () => {
     $(document).on("keyup", "#_collectionTownInput", (ev) => {
       apiCall

@@ -22,8 +22,7 @@ form.onsubmit = async function (e) {
       })
         .then((response) => response.json())
         .then((res) => {
-            localStorage.setItem("api_token", res.data.api_token);
-
+         localStorage.setItem("api_token", res.data.api_token);
           console.log(res);
           location.href='courier.html';
         })
